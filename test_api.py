@@ -1,6 +1,6 @@
 import pytest
 from app import app
-from db import connect_to_db
+from db import Database
 import json
 
 @pytest.fixture
@@ -20,10 +20,11 @@ def test_index_returns_json_data(client):
     assert True if json.loads(res.data) else False
 
 def test_db_connection_is_not_null():
-    conn = connect_to_db()
-    assert conn 
-    conn.close()
-    assert conn.closed
+    db = Database()
+    assert db.connection
+    db.close_connection()
+    assert db.connection.closed
+
 
 # def test_db_query_is_not_null():
 #     conn = connect_to_db()
