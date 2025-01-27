@@ -29,5 +29,18 @@ def test_db_connection_is_not_null():
 def test_db_query_is_not_null():
     db = Database()
     result = db.query("SELECT * FROM courses;")
-    assert result
+    assert result 
+    assert type(result) is list
+    assert type(result[0]) is tuple
+    db.close_connection()
+
+# def test_db_query_returns_json():
+#     db = Database()
+#     result = db.query("SELECT * FROM courses;")
+
     
+    
+    
+
+
+
