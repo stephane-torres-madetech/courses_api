@@ -22,3 +22,8 @@ def test_index_returns_json_data(client):
 def test_db_connection_is_not_null():
     conn = connect_to_db()
     assert conn 
+    conn.close()
+    assert conn.closed
+
+# def test_db_query_is_not_null():
+#     conn = connect_to_db()
