@@ -17,5 +17,10 @@ class Database():
         )
         return conn
     
+    def query(self, query:str):
+        cursor = self.connection.cursor()
+        cursor.execute(query)
+        return cursor.fetchall()
+    
     def close_connection(self):
         self.connection.close()

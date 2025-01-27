@@ -26,5 +26,8 @@ def test_db_connection_is_not_null():
     assert db.connection.closed
 
 
-# def test_db_query_is_not_null():
-#     conn = connect_to_db()
+def test_db_query_is_not_null():
+    db = Database()
+    result = db.query("SELECT * FROM courses;")
+    assert result
+    
